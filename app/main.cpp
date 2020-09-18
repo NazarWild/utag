@@ -2,11 +2,18 @@
 
 int main(int argc, char **argv) {
 	GtkWidget *window, *vbox;
+	GtkLabel *label;
 
     gtk_init (&argc, &argv);
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+    TagLib::FileRef f(argv[1]);
+	TagLib::String artist = f.tag()->artist();
+
+	label = gtk_label_new(str);
+	gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(label), 1, 0, 5);
 
     gtk_container_add (GTK_CONTAINER (window), vbox);
 
