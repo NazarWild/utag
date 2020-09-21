@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+ad3e346d130108023ef8c0ed05bd075a 3dparty/taglib/CMakeFiles/docs
+d66ebed74ece8a7fa6f28026fb86481b 3dparty/taglib/CMakeFiles/uninstall

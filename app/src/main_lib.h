@@ -8,3 +8,6 @@
 #include <fileref.h>
 #include <taglib_export.h>
 #include <audioproperties.h>
+
+#include <sys/stat.h>
+#include <dirent.h>
