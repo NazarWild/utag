@@ -11,9 +11,8 @@ add_compile_options(
     -Wpedantic
 )
 
-# Use the package PkgConfig to detect GTK+ headers/library files
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
+find_package(PkgConfig)
+pkg_check_modules(GTKMM gtkmm-3.0)
 
 include_directories(
     ./src
@@ -38,18 +37,13 @@ include_directories(
     ../3dparty/taglib/taglib
 )
 
-# Setup CMake to use GTK+, tell the compiler where to look for headers
-# and to the linker where to look for libraries
-include_directories(${GTK3_INCLUDE_DIRS})
-link_directories(${GTK3_LIBRARY_DIRS})
-
-# Add other flags to the compiler
-add_definitions(${GTK3_CFLAGS_OTHER})
+link_directories(${GTKMM_LIBRARY_DIRS})
+include_directories(include ${GTKMM_INCLUDE_DIRS})
 
 add_executable(utag main.cpp)
 
 add_subdirectory(src)
 
-target_link_libraries(utag tag liba ${GTK3_LIBRARIES})
+target_link_libraries(utag tag liba ${GTKMM_LIBRARIES})
 
 set_target_properties(utag PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../..)
